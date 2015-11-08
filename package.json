@@ -1,15 +1,15 @@
 {
   "name": "language-mscgen",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "MscGen language support in Atom",
   "keywords": [
-      "language",
-      "grammar",
-      "mscgen",
-      "sequence chart",
-      "sequence diagram",
-      "xu",
-      "msgenny"
+    "language",
+    "grammar",
+    "mscgen",
+    "sequence chart",
+    "sequence diagram",
+    "xu",
+    "msgenny"
   ],
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "readmeFilename" : "README.md",
+  "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/sverweij/atom-language-mscgen/issues"
   },
