@@ -1,0 +1,115 @@
+'name': 'Xù'
+'scopeName': 'source.xu'
+'foldingStartMarker': '\{\s*$';
+'foldingStopMarker': '^\s*\}';
+'fileTypes': [
+    'xu'
+]
+'patterns': [
+  {
+      'comment': 'opening msc'
+      'match': '\\b(msc)\\b'
+      'name': 'storage.type.xu'
+  }
+  {
+      'comment': 'arc types - symbols'
+      'match': '((\\|\\|\\|)|(\\.\\.\\.)|(---)|(--)|(<->)|(==)|(<<=>>)|(<=>)|(\\.\\.)|(<<>>)|(::)|(<:>)|(->)|(=>>)|(=>)|(>>)|(:>)|(<-)|(<<=)|(<=)|(<<)|(<:)|(x-)|(-x))'
+      'name': 'storage.type.xu'
+  }
+  {
+      'comment': 'arc types - words'
+      'match': '\\b(note|box|abox|rbox|alt|else|opt|break|par|seq|strict|neg|critical|ignore|consider|assert|loop|ref|exc)\\b'
+      'name': 'storage.type.xu'
+  }
+  {
+      'comment': 'options'
+      'match': '\\b(hscale|width|arcgradient|wordwraparcs|watermark)\\b'
+      'name': 'storage.modifier.xu'
+  }
+  {
+      'comment': 'language constants'
+      'match': '\\b(on|off|true|false)\\b'
+      'name': 'constant.language.xu'
+  }
+  {
+      'comment': 'attribute list'
+      'begin':'\\['
+      'end': '\\]'
+      'name': 'keyword.operator.xu'
+      'patterns': [
+          {
+            'comment': 'attributes'
+            'match': '\\b((label|idurl|id|url|linecolor|linecolour|textcolor|textcolour|textbgcolor|textbgcolour|arclinecolor|arclinecolour|arctextcolor|arctextcolour|arctextbgcolor|arctextbgcolour|arcskip))\\b'
+            'name': 'keyword.attribute.xu'
+          }
+          {
+            'comment': 'equals operator'
+            'match': '='
+            'name': 'storage.type.xu'
+          }
+          {
+            'comment': 'strings'
+            'begin': '"'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.string.begin.xu'
+            'end': '"'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.definition.string.end.xu'
+            'name': 'string.quoted.double.xu'
+            'patterns': [
+              {
+                'match': '\\\\.'
+                'name': 'constant.character.escape.xu'
+              }
+            ]
+          }
+      ]
+  }
+  {
+    'begin': '(^[ \\t]+)?(?=#)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.xu'
+    'end': '(?!\\G)'
+    'patterns': [
+      {   
+        'comment': 'one line comments - #-type'
+        'begin': '#' 
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.xu'
+        'end': '\\n'
+        'name': 'comment.line.number-sign.xu'
+      }   
+    ]   
+  }
+  {
+    'comment': 'one line comments - //-type'  
+    'begin': '(^[ \\t]+)?(?=//)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.xu'
+    'end': '(?!\\G)'
+    'patterns': [
+      {   
+        'begin': '//'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.xu'
+        'end': '\\n'
+        'name': 'comment.line.double-slash.xu'
+      }   
+    ]   
+  }
+  {
+    'comment': 'multiline comments'
+    'begin': '/\\*'
+    'captures':
+      '0':
+        'name': 'punctuation.definition.comment.xu'
+    'end': '\\*/'
+    'name': 'comment.block.xu'
+  }
+]

@@ -1,0 +1,34 @@
+'.source.msgenny':
+  'MscGen skeleton':
+    'prefix': 'msc'
+    'body': """
+    # options
+    wordwraparcs=on;
+    
+    # entities
+    ${1:a}: Sender,
+    ${2:b}: Receiver;
+    
+    # arcs
+    ${1:a} =>> ${2:b}: "Message";
+    ${2:b} >> ${1:a}: "Response";
+    $3
+    """
+  'MsGenny arc':
+    'prefix': 'arc'
+    'body': '${1:from} =>> ${2:to}: "${3:Message}";'
+  'MsGenny loop template':
+    'prefix': 'loop'
+    'body': """
+    ${1:from} loop ${2:to}: "${3:For every ...}" {
+        $4
+    };
+    """
+  'MsGenny alt template':
+    'prefix': 'alt'
+    'body': """
+    ${1:from} alt ${2:to}: "${3:Happy day}" {
+        $5
+        ---: "${4:Alternative scenario}";
+    };
+    """

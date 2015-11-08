@@ -1,0 +1,26 @@
+# test54 - nesting 
+a, c, e;
+
+a opt e : 10 {
+  a opt e : 9 {
+    a opt e : 8 {
+      a opt e : 7 {
+        a opt e : 6 {
+          a opt e : 5 {
+            a opt e : 4 {
+              a opt e : 3 {
+                a opt e : 2 {
+                  a alt e : 1 {
+                    a box a : Stop digging!;
+                    --- : the dwarves dug deeper and deeper;
+                    e box e : a balrog!;
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
+    };
+  };
+};

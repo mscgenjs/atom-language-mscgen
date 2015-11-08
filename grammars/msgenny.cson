@@ -1,0 +1,104 @@
+'name': 'MsGenny'
+'scopeName': 'source.msgenny'
+'foldingStartMarker': '\{\s*$';
+'foldingStopMarker': '^\s*\}';
+'fileTypes': [
+    'msgenny'
+]
+'patterns': [
+  {
+      'comment': 'arc types - symbols'
+      'match': '((\\|\\|\\|)|(\\.\\.\\.)|(---)|(--)|(<->)|(==)|(<<=>>)|(<=>)|(\\.\\.)|(<<>>)|(::)|(<:>)|(->)|(=>>)|(=>)|(>>)|(:>)|(<-)|(<<=)|(<=)|(<<)|(<:)|(x-)|(-x))'
+      'name': 'storage.type.msgenny'
+  }
+  {
+      'comment': 'arc types - words'
+      'match': '\\b(note|box|abox|rbox|alt|else|opt|break|par|seq|strict|neg|critical|ignore|consider|assert|loop|ref|exc)\\b'
+      'name': 'storage.type.msgenny'
+  }
+  {
+      'comment': 'options'
+      'match': '\\b(hscale|width|arcgradient|wordwraparcs|watermark)\\b'
+      'name': 'storage.modifier.msgenny'
+  }
+  {
+      'comment': 'language constants'
+      'match': '\\b(on|off|true|false)\\b'
+      'name': 'constant.language.msgenny'
+  }
+  {
+      'comment': 'attribute list'
+      'begin':':'
+      'end': '(;|,|\\{)'
+      'name': 'string'
+      'patterns': [
+          {
+            'comment': 'strings'
+            'begin': '"'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.string.begin.msgenny'
+            'end': '"'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.definition.string.end.msgenny'
+            'name': 'string.quoted.double.msgenny'
+            'patterns': [
+              {
+                'match': '\\\\.'
+                'name': 'constant.character.escape.msgenny'
+              }
+            ]
+          }
+          {
+            'match': '\\\\.'
+            'name': 'constant.character.escape.msgenny'
+          }
+      ]
+  }
+  {
+    'begin': '(^[ \\t]+)?(?=#)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.msgenny'
+    'end': '(?!\\G)'
+    'patterns': [
+      {   
+        'comment': 'one line comments - #-type'
+        'begin': '#' 
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.msgenny'
+        'end': '\\n'
+        'name': 'comment.line.number-sign.msgenny'
+      }   
+    ]   
+  }
+  {
+    'comment': 'one line comments - //-type'  
+    'begin': '(^[ \\t]+)?(?=//)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.msgenny'
+    'end': '(?!\\G)'
+    'patterns': [
+      {   
+        'begin': '//'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.msgenny'
+        'end': '\\n'
+        'name': 'comment.line.double-slash.msgenny'
+      }   
+    ]   
+  }
+  {
+    'comment': 'multiline comments'
+    'begin': '/\\*'
+    'captures':
+      '0':
+        'name': 'punctuation.definition.comment.msgenny'
+    'end': '\\*/'
+    'name': 'comment.block.msgenny'
+  }
+]

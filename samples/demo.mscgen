@@ -1,0 +1,13 @@
+msc {
+    # options
+    wordwraparcs=on;
+    
+    # entities
+    Fred [label="Sender"],
+    Barney [label="Receiver"];
+    
+    # arcs
+    Fred =>> Barney [label="Message"];
+    Barney >> Fred [label="Response"];
+    Fred =>> Barney [label="Yabba dabba dooo!"];
+}

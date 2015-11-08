@@ -1,0 +1,19 @@
+msc {
+    act [label="Actor"],
+    sys [label="System"],
+    be  [label="Backend"];
+    
+    act =>> sys [label="could you do this for me?", textcolor="blue", textbgcolor="yellow"];
+    sys >> act [label="sure thing!"],
+    sys =>> be [label="do this for [Actor]"];
+    be rbox be [label="some processing"];
+    act alt be [label="Happy day"] {
+        be >> sys [label="done something!"];
+        sys >> act [label="done!"];
+        --- [label="Backend in a tizzy"];
+        be >> sys [label="Bit of in a tizzy"];
+        sys =>> sys [label="Generate excuse"];
+        sys >> act [label="[Excuse of the day]"];
+    };
+    
+}

@@ -1,0 +1,122 @@
+'name': 'MscGen'
+'scopeName': 'source.mscgen'
+'foldingStartMarker': '\{\s*$';
+'foldingStopMarker': '^\s*\}';
+'fileTypes': [
+    'mscgen'
+    'mscin'
+    'msc'
+]
+'patterns': [
+  {
+      'comment': 'opening msc'
+      'match': '\\b(msc)\\b'
+      'name': 'storage.type.mscgen'
+  }
+  {
+      'comment': 'arc types - symbols'
+      'match': '((\\|\\|\\|)|(\\.\\.\\.)|(---)|(--)|(<->)|(==)|(<<=>>)|(<=>)|(\\.\\.)|(<<>>)|(::)|(<:>)|(->)|(=>>)|(=>)|(>>)|(:>)|(<-)|(<<=)|(<=)|(<<)|(<:)|(x-)|(-x))'
+      'name': 'storage.type.mscgen'
+  }
+  {
+      'comment': 'arc types - words'
+      'match': '\\b(note|box|abox|rbox)\\b'
+      'name': 'storage.type.mscgen'
+  }
+  {
+      'comment': 'flag keywords from xù and msgenny as illegal in vanilla mscgen'
+      'match': '\\b(watermark|alt|else|opt|break|par|seq|strict|neg|critical|ignore|consider|assert|loop|ref|exc)\\b'
+      'name': 'invalid.illegal'
+  }
+  {
+      'comment': 'options'
+      'match': '\\b(hscale|width|arcgradient|wordwraparcs)\\b'
+      'name': 'storage.modifier.mscgen'
+  }
+  {
+      'comment': 'language constants'
+      'match': '\\b(on|off|true|false)\\b'
+      'name': 'constant.language.mscgen'
+  }
+  {
+      'comment': 'attribute list'
+      'begin':'\\['
+      'end': '\\]'
+      'name': 'keyword.operator.mscgen'
+      'patterns': [
+          {
+            'comment': 'attributes'
+            'match': '\\b(label|idurl|id|url|linecolor|linecolour|textcolor|textcolour|textbgcolor|textbgcolour|arclinecolor|arclinecolour|arctextcolor|arctextcolour|arctextbgcolor|arctextbgcolour|arcskip)\\b'
+            'name': 'keyword.attribute.mscgen'
+          }
+          {
+            'comment': 'equals operator'
+            'match': '='
+            'name': 'storage.type.mscgen'
+          }
+          {
+            'comment': 'strings'
+            'begin': '"'
+            'beginCaptures':
+              '0':
+                'name': 'punctuation.definition.string.begin.mscgen'
+            'end': '"'
+            'endCaptures':
+              '0':
+                'name': 'punctuation.definition.string.end.mscgen'
+            'name': 'string.quoted.double.mscgen'
+            'patterns': [
+              {
+                'match': '\\\\.'
+                'name': 'constant.character.escape.mscgen'
+              }
+            ]
+          }
+      ]
+  }
+  {
+    'begin': '(^[ \\t]+)?(?=#)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.mscgen'
+    'end': '(?!\\G)'
+    'patterns': [
+      {   
+        'comment': 'one line comments - #-type'
+        'begin': '#' 
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.mscgen'
+        'end': '\\n'
+        'name': 'comment.line.number-sign.mscgen'
+      }   
+    ]   
+  }
+  {
+    'comment': 'one line comments - //-type'  
+    'begin': '(^[ \\t]+)?(?=//)'
+    'beginCaptures':
+      '1':
+        'name': 'punctuation.whitespace.comment.leading.mscgen'
+    'end': '(?!\\G)'
+    'patterns': [
+      {   
+        'begin': '//'
+        'beginCaptures':
+          '0':
+            'name': 'punctuation.definition.comment.mscgen'
+        'end': '\\n'
+        'name': 'comment.line.double-slash.mscgen'
+      }   
+    ]   
+  }
+  {
+    'comment': 'multiline comments'
+    'begin': '/\\*'
+    'captures':
+      '0':
+        'name': 'punctuation.definition.comment.mscgen'
+    'end': '\\*/'
+    'name': 'comment.block.mscgen'
+  }
+]
