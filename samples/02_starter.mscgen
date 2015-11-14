@@ -1,3 +1,4 @@
+/* multiline comment  outside msc */
 // starter MscGen with liberate comments to help you along 
 // with creating charts without having to remember every keyword
 msc {
@@ -7,7 +8,8 @@ msc {
   # hscale="0.8", # horizontally squeezes or stretches the chart
   # width="600", # sets the maximum width of the chart (pixels)
   # watermark="a watermark", # adds a watermark (xù only!)
-  wordwraparcs="on"; # automatically wrap labels on arcs. Default: off
+  wordwraparcs/*comment in an option*/=on, # automatically wrap labels on arcs. Default: off
+  hscale=0.9;
 
   # entities
   # 
@@ -20,10 +22,12 @@ msc {
   #          
   
   cust [label="Customer"],
-  shop,
+  shop [label=Shop_23, textbgcolour="#666666", # asdfasdf
+  textcolour=white, linecolor="blue"],
   "delivery service",
   bank;
 
+/* multiline comment insde msc */
   # arcs
   #
   # attributes: 
@@ -37,7 +41,7 @@ msc {
   #            --, ::, ..
   #            note, box, abox, rbox
 
-  cust => shop [label="order(thing)"];
+  cust => shop [label=/*comment*/"order(thing)"];
   shop -> "delivery service" [label="deliver(thing)"];
   "delivery service" =>> cust [label="thing"];
   cust >> "delivery service" [label="OK"];
@@ -47,7 +51,8 @@ msc {
   cust => bank [label="pay(bill, shop)"];
   bank => shop [label="€"];
   cust rbox cust [label="done :-)"];
-  
+  shop =>> * [label="happy now ..."];
+  shop loop *
   
   # inline expressions (xù only):
   # xù only  : alt, else, opt, break, critical,

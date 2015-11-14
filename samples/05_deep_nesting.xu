@@ -1,5 +1,7 @@
 # test54 - nesting 
 msc {
+  watermark="The mines of Moria";
+  
   a, c, e;
 
   a opt e [label="10"]{

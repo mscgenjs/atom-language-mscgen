@@ -2,10 +2,12 @@
 
 # note that for  none of the entities used below
 # an explicit entity declaration exists
-watermark="MsGenny feature demo";
+watermark="MsGenny feature demo", hscale=0.8;
+
+cust, shop;
 
 cust => shop : order(thing);
-shop => "delivery service" : deliver(thing);
+shop => "delivery service" :/* not included */ deliver\n(thing) /* included */;
 "delivery service" => cust : thing;
 cust >> "delivery service" : OK;
 "delivery service" => shop : delivered!;

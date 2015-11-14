@@ -13,7 +13,7 @@ a opt e : 10 {
                   a alt e : 1 {
                     a box a : Stop digging!;
                     --- : the dwarves dug deeper and deeper;
-                    e box e : a balrog!;
+                    e box e : "a, balrog!";
                   };
                 };
               };
