@@ -5,7 +5,7 @@ Syntax highlighting for MscGen and two similar sequence chart languages.
 ![animated gif demoing syntax highlighting and snippets](https://raw.githubusercontent.com/sverweij/atom-language-mscgen/master/screenshots/language-mscgen.gif)
 
 ## Features
-- Syntax highlighting
+- Contextualized syntax highlighting
 - Inline expression folding
 - Snippets:
     - `msc` - a skeleton sequence chart appropriate for the language
