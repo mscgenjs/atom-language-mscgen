@@ -7,15 +7,18 @@
         wordwraparcs=on;
         
         # entities
-        ${1:a} [label="Sender"],
-        ${2:b} [label="Receiver"];
+        ${1:a} [label="${2:Sender}"],
+        ${3:b} [label="${4:Receiver}"];
         
         # arcs
-        ${1:a} =>> ${2:b} [label="Message"];
-        ${2:b} >> ${1:a} [label="Response"];
-        $3
+        ${1:a} =>> ${3:b} [label="Message"];
+        ${3:b} >> ${1:a} [label="Response"];
+        $5
     }
     """
+  'MscGen entity':
+    prefix: 'ent'
+    body: '${1:entity} [label="${2:Entity}"]$3'
   'MscGen arc':
     prefix: 'arc'
     body: '${1:from} =>> ${2:to} [label="${3:Message}"];'
