@@ -25,7 +25,10 @@ patterns: [
                 include: "#option"
             }
             {
-                include: "#identifier"
+                include: "#punctuation"
+            }
+            {
+                include: "#comment"
             }
             {
                 include: "#attributelist"
@@ -34,10 +37,7 @@ patterns: [
                 include: "#arctype"
             }
             {
-                include: "#punctuation"
-            }
-            {
-                include: "#comment"
+                include: "#identifier"
             }
             {
                 include: "#illegalalien"
