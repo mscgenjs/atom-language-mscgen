@@ -1,7 +1,7 @@
 '.source.msgenny':
   'MscGen skeleton':
-    'prefix': 'msc'
-    'body': """
+    prefix: 'msc'
+    body: """
     # options
     wordwraparcs=on;
     
@@ -15,18 +15,18 @@
     $3
     """
   'MsGenny arc':
-    'prefix': 'arc'
-    'body': '${1:from} =>> ${2:to}: "${3:Message}";'
+    prefix: 'arc'
+    body: '${1:from} =>> ${2:to}: "${3:Message}";'
   'MsGenny loop template':
-    'prefix': 'loop'
-    'body': """
+    prefix: 'loop'
+    body: """
     ${1:from} loop ${2:to}: "${3:For every ...}" {
         $4
     };
     """
   'MsGenny alt template':
-    'prefix': 'alt'
-    'body': """
+    prefix: 'alt'
+    body: """
     ${1:from} alt ${2:to}: "${3:Happy day}" {
         $5
         ---: "${4:Alternative scenario}";

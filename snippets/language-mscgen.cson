@@ -1,7 +1,7 @@
 '.source.mscgen':
   'MscGen skeleton':
-    'prefix': 'msc'
-    'body': """
+    prefix: 'msc'
+    body: """
     msc {
         # options
         wordwraparcs=on;
@@ -17,6 +17,6 @@
     }
     """
   'MscGen arc':
-    'prefix': 'arc'
-    'body': '${1:from} =>> ${2:to} [label="${3:Message}"];'
+    prefix: 'arc'
+    body: '${1:from} =>> ${2:to} [label="${3:Message}"];'
     
