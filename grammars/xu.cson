@@ -23,7 +23,10 @@ patterns: [
                 include: "#option"
             }
             {
-                include: "#identifier"
+                include: "#punctuation"
+            }
+            {
+                include: "#comment"
             }
             {
                 include: "#attributelist"
@@ -35,10 +38,7 @@ patterns: [
                 include: "#inlineblock"
             }
             {
-                include: "#punctuation"
-            }
-            {
-                include: "#comment"
+                include: "#identifier"
             }
             {
                 include: "#illegalalien"
