@@ -52,7 +52,7 @@ msc {
   bank => shop [label="€"];
   cust rbox cust [label="done :-)"];
   shop =>> * [label="happy now ..."];
-  shop loop *
+  shop -> *;
   
   # inline expressions (xù only):
   # xù only  : alt, else, opt, break, critical,
