@@ -10,6 +10,7 @@ Syntax highlighting for MscGen and two similar sequence chart languages.
 - Snippets:
     - `msc` - a skeleton sequence chart appropriate for the language
     - `arc` - a single arrow arc: `a =>> b [label="Message"];`
+    - `ent` - an entity: `entity [label="Entity"]`
     - `loop` and `arc` - a loop and an arc template (only available in xù
         and msgenny)
 
