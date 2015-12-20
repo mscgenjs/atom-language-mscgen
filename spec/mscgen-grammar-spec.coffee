@@ -1,25 +1,3 @@
-expectLegalHashComment = (tokens) ->
-  expect(tokens[0]).toEqual value: "#", scopes: [
-    "source.mscgen",
-    "comment.line.number-sign.mscgen",
-    "punctuation.definition.comment.mscgen"
-  ]
-  expect(tokens[1].scopes).toEqual [
-    "source.mscgen",
-    "comment.line.number-sign.mscgen",
-  ]
-
-expectLegalSlashComment = (tokens) ->
-  expect(tokens[0]).toEqual value: "//", scopes: [
-    "source.mscgen",
-    "comment.line.double-slash.mscgen",
-    "punctuation.definition.comment.mscgen"
-  ]
-  expect(tokens[1].scopes).toEqual [
-    "source.mscgen",
-    "comment.line.double-slash.mscgen",
-  ]
-
 describe "MscGen grammar", ->
   grammar = null
 
@@ -34,7 +12,7 @@ describe "MscGen grammar", ->
     expect(grammar).toBeTruthy()
     expect(grammar.scopeName).toBe "source.mscgen"
 
-  describe "A simple, complete but illeagal mscgen script", ->
+  describe "A simple, complete (but invalid) MscGen script", ->
     lines = null
 
     beforeEach ->
@@ -79,7 +57,7 @@ describe "MscGen grammar", ->
         "storage.modifier.mscgen",
       ]
 
-    it "recognizes option assignemnts", ->
+    it "recognizes option assignments", ->
       expect(lines[3][2]).toEqual value: "=", scopes: [
               "source.mscgen",
               "storage.type.mscgen",
@@ -128,6 +106,22 @@ describe "MscGen grammar", ->
           "string.identifier.as.attribute.value.mscgen"
         ]
 
+      describe "within strings", ->
+        it "leaves comments and keywords as is", ->
+          expect(lines[6][12]).toEqual value: "Entity A /* comment in a string*/ hscale", scopes: [
+            "source.mscgen",
+            "keyword.operator.mscgen",
+            "string.quoted.double.mscgen"
+          ]
+
+        it "recognizes escaped characters", ->
+          expect(lines[14][12]).toEqual value: "\\n", scopes: [
+            "source.mscgen",
+            "keyword.operator.mscgen",
+            "string.quoted.double.mscgen",
+            "constant.character.escape.mscgen"
+          ]
+
   describe "Outside msc {} scope", ->
     it "treats single line hashmark comments as comments", ->
       {tokens} = grammar.tokenizeLine "# legal"
@@ -171,9 +165,38 @@ describe "MscGen grammar", ->
         "source.mscgen"
       ]
 
-    it "declares other stuff illegal", ->
-      {tokens} = grammar.tokenizeLine("=> not legal")
+    it "declares everything else illegal", ->
+      {tokens} = grammar.tokenizeLine("= not legal")
       expect(tokens[0]).toEqual value: "=", scopes: [
         "source.mscgen",
         "invalid.illegal.mscgen"
       ]
+
+    it "declares stuff illegal that would be legal within msc {} scope", ->
+      {tokens} = grammar.tokenizeLine("illegal box illegal;")
+      expect(tokens[0]).toEqual value: "i", scopes: [
+        "source.mscgen",
+        "invalid.illegal.mscgen"
+      ]
+
+expectLegalHashComment = (tokens) ->
+  expect(tokens[0]).toEqual value: "#", scopes: [
+    "source.mscgen",
+    "comment.line.number-sign.mscgen",
+    "punctuation.definition.comment.mscgen"
+  ]
+  expect(tokens[1].scopes).toEqual [
+    "source.mscgen",
+    "comment.line.number-sign.mscgen",
+  ]
+
+expectLegalSlashComment = (tokens) ->
+  expect(tokens[0]).toEqual value: "//", scopes: [
+    "source.mscgen",
+    "comment.line.double-slash.mscgen",
+    "punctuation.definition.comment.mscgen"
+  ]
+  expect(tokens[1].scopes).toEqual [
+    "source.mscgen",
+    "comment.line.double-slash.mscgen",
+  ]
