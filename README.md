@@ -1,6 +1,6 @@
-# MscGen language support in Atom
+# MscGen language support
 
-Syntax highlighting for MscGen and two similar sequence chart languages. 
+Syntax highlighting & snippets for MscGen and two similar sequence chart languages. 
 
 > If you're interested in this, another package - [mscgen-preview](https://atom.io/packages/mscgen-preview) - will _definitely_ make you happy. mscgen-preview includes the language-mscgen highlighting _and_ live-previews the rendered chart.
 
