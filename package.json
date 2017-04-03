@@ -1,6 +1,6 @@
 {
   "name": "language-mscgen",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "MscGen language support in Atom",
   "keywords": [
     "language",
