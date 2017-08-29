@@ -1,6 +1,6 @@
 {
   "name": "language-mscgen",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "MscGen language support in Atom",
   "keywords": [
     "language",
@@ -25,6 +25,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-      "eslint": "4.5.0"
+    "eslint": "4.5.0"
   }
 }
