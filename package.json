@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/mscgenjs/atom-language-mscgen/issues"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+      "eslint": "4.5.0"
+  }
 }
